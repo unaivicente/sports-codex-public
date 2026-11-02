@@ -1,0 +1,26 @@
+{
+  "ontology_id": "example-football",
+  "sport_id": "football",
+  "sport_display_name": "Football",
+  "ontology_version": "football-2026-05-06",
+  "labels": [
+    {
+      "label_id": "football.event.pass",
+      "label_type": "event",
+      "display_name": "Pass"
+    },
+    {
+      "label_id": "football.event.shot",
+      "label_type": "event",
+      "display_name": "Shot"
+    }
+  ],
+  "transition_rules": [
+    {
+      "from_label": "football.event.pass",
+      "to_label": "football.event.shot",
+      "rule_type": "allowed_after",
+      "max_gap_seconds": 30
+    }
+  ]
+}

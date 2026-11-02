@@ -1,0 +1,59 @@
+{
+  "ontology_id": "football",
+  "ontology_version": "football-2026-05-11",
+  "metadata": {
+    "display_name": "Football",
+    "description": "Local MVP football ontology for endpoint discovery."
+  },
+  "labels": [
+    {
+      "label_id": "football.phase.open_play",
+      "label_type": "phase",
+      "display_name": "Open play"
+    },
+    {
+      "label_id": "football.phase.stoppage",
+      "label_type": "phase",
+      "display_name": "Stoppage"
+    },
+    {
+      "label_id": "football.event.pass",
+      "label_type": "event",
+      "display_name": "Pass"
+    },
+    {
+      "label_id": "football.event.shot",
+      "label_type": "event",
+      "display_name": "Shot"
+    },
+    {
+      "label_id": "football.object.ball",
+      "label_type": "object",
+      "display_name": "Ball"
+    }
+  ],
+  "transition_rules": [
+    {
+      "from_label": "football.phase.open_play",
+      "to_label": "football.phase.stoppage",
+      "rule_type": "allowed_after",
+      "min_gap_seconds": 0
+    },
+    {
+      "from_label": "football.phase.stoppage",
+      "to_label": "football.phase.open_play",
+      "rule_type": "allowed_after",
+      "min_gap_seconds": 0
+    },
+    {
+      "from_label": "football.event.pass",
+      "to_label": "football.event.shot",
+      "rule_type": "allowed_after",
+      "max_gap_seconds": 30
+    }
+  ],
+  "thresholds": {
+    "default_confidence": 0.5
+  },
+  "deprecated_labels": []
+}

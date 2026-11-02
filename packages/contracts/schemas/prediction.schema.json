@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.contracts/prediction.schema.json",
+  "title": "PredictionContract",
+  "type": "object",
+  "additionalProperties": true,
+  "required": [
+    "prediction_id",
+    "video_id",
+    "timestamp",
+    "interval_start",
+    "interval_end",
+    "duration_seconds",
+    "timebase",
+    "label",
+    "confidence",
+    "evidence",
+    "model_version",
+    "ontology_version",
+    "created_at"
+  ],
+  "properties": {
+    "prediction_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "video_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "number",
+      "minimum": 0
+    },
+    "interval_start": {
+      "type": "number",
+      "minimum": 0
+    },
+    "interval_end": {
+      "type": "number",
+      "minimum": 0
+    },
+    "duration_seconds": {
+      "const": 1
+    },
+    "timebase": {
+      "type": "string",
+      "minLength": 1
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Ontology label identifier, resolved against ontology_version."
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "evidence.schema.json"
+      }
+    },
+    "model_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ontology_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "inference_config": {
+      "type": "object"
+    },
+    "created_at": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
